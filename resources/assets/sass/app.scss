@@ -1,0 +1,93 @@
+@import "vendor/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "vendor/bower_components/fontawesome/scss/font-awesome.scss";
+@import '//fonts.googleapis.com/css?family=Lato:100';
+
+body {
+	background: #ffffff;
+
+}
+.navbar-fixed-top {
+	-webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
+	box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.25);
+}
+.navbar-brand {
+	font-family: 'Lato';
+	padding: 0 15px;
+}
+.logo-first-letter {
+	color: #53b3de;
+}
+.container-body {
+	padding-top: 70px;
+}
+.top-post {
+	position: relative;
+}
+.top-post-title {
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	right: 5%;
+	color: #ffffff;
+	padding: 10px;
+	font-size: 24px;
+	padding: 5px;
+}
+.top-post-main-title a {
+	color: #ffffff;
+	text-decoration: none;
+}
+.top-post-subtitle {
+	font-size: 14px;
+}
+.top-post-options {
+	position: absolute;
+	right: 5%;
+	bottom: 5%;
+}
+.container-body {
+	background: #ffffff;
+}
+.last-post {
+	margin: 20px 0 20px -15px;
+}
+.last-post-description {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.navbar-nav i.fa {
+	font-size: 18px;
+}
+.signin-form {
+	width: 50%;
+}
+.last-post-preview-text {
+	margin-top: 10px;
+	text-align: justify;
+}
+.last-post-title {
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 1.1;
+	text-align: justify;
+}
+.right-panel h3, .main-page-last-posts h3 {
+	margin-top: 0px;
+	background-color: #e2e2e8;
+	padding: 10px;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+}
+.community-category-block {
+	border-left: 3px solid;
+	padding-left: 10px;
+	margin-left: 15px;
+	
+}
+
+.community-category-subtitle {
+	font-size: 11px;
+	border-bottom: 1px solid #e2e2e8;
+}
