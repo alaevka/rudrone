@@ -51,9 +51,9 @@
 					<li><a href="{{ URL::to('profile') }}"><i class="fa fa-cogs"></i> {{ Lang::get('site/user.profile') }}</a></li>
 					<li><a href="{{ URL::to('signout') }}"><i class="fa fa-sign-out"></i> {{ Lang::get('site/user.signout') }}</a></li>
 					@else
-					<li><a href="{{ URL::to('signin') }}">{{Lang::get('site/user.via_email') }}</a></li>
-					<li><a href=""><i class="fa fa-facebook-square fa-header-icon"></i></a></li>
-					<li><a href=""><i class="fa fa-vk fa-header-icon"></i></a></li>
+					<li><a href="{{ URL::to('signin') }}">{{Lang::get('site/user.signin_header_link') }}</a></li>
+					<!-- <li><a href=""><i class="fa fa-facebook-square fa-header-icon"></i></a></li>
+					<li><a href=""><i class="fa fa-vk fa-header-icon"></i></a></li> -->
 					@endif
 				</ul>
 			</div><!-- /.navbar-collapse -->

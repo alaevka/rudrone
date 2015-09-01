@@ -8,35 +8,55 @@
     <h3>{{{ Lang::get('site/user.signin') }}}</h3>
 </div>
 
-<form class="signin-form" method="POST" action="{{URL::to('signin')}}" accept-charset="UTF-8">
-	<!-- CSRF Token -->
-	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-	<!-- ./ csrf token -->
-    <fieldset>
-    <div class="form-group {{$errors->has('email') ? 'has-error':''}}">
-        <input class="form-control" tabindex="1" placeholder="{{ Lang::get('site/user.e_mail') }}" type="text" name="email" id="email" value="{{ Input::old('email') }}"> 
-		{!!$errors->first('email', '<span class="help-block error-input">:message </span>')!!}
-    </div>
-    <div class="form-group {{$errors->has('password')?'has-error':''}}">
-        <input class="form-control" tabindex="2" placeholder="{{ Lang::get('site/user.password') }}" type="password" name="password" id="password"> 
-        {!!$errors->first('password', '<span class="help-block error-input">:message </span>')!!}
-    </div>
-    
-    <div style="margin-bottom: 20px;">
-        <button tabindex="3" type="submit" class="btn btn-primary">{{Lang::get('site/user.submit') }}</button>
-        <a href="{{{ URL::to('forgot') }}}">
-            <small>{{Lang::get('site/user.forgot_password') }}</small>
-        </a>
-    </div>
+<div class="row">
+    <div class="col-md-6">
+        <form class="signin-form" method="POST" action="{{URL::to('signin')}}" accept-charset="UTF-8">
+            <!-- CSRF Token -->
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <!-- ./ csrf token -->
+            <fieldset>
+            <div class="form-group {{$errors->has('email') ? 'has-error':''}}">
+                <input class="form-control" tabindex="1" placeholder="{{ Lang::get('site/user.e_mail') }}" type="text" name="email" id="email" value="{{ Input::old('email') }}"> 
+                {!!$errors->first('email', '<span class="help-block error-input">:message </span>')!!}
+            </div>
+            <div class="form-group {{$errors->has('password')?'has-error':''}}">
+                <div class="password-container" style="position: relative;">
+                    <input class="form-control" tabindex="2" placeholder="{{ Lang::get('site/user.password') }}" type="password" name="password" id="password"> 
+                    <a style="position: absolute; right: 8px; top: 8px;" href="{{{ URL::to('forgot') }}}">
+                        <small>{{Lang::get('site/user.forgot_password') }}</small>
+                    </a>
+                </div>
+                {!!$errors->first('password', '<span class="help-block error-input">:message </span>')!!}
 
-    <div style="margin-bottom: 20px;">
-    <p class="text-muted">
-        <small>{{Lang::get('site/user.do_not_have_an_account') }}</small>
-    </p>
-    <a class="btn btn-sm btn-default" href="{{{ URL::to('signup') }}}">{{Lang::get('site/user.create_an_account') }}</a>
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <button tabindex="3" type="submit" class="btn btn-primary">{{Lang::get('site/user.submit') }}</button>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+            <p class="text-muted">
+                <small>{{Lang::get('site/user.do_not_have_an_account') }}</small>
+            </p>
+            <a class="btn btn-sm btn-default" href="{{{ URL::to('signup') }}}">{{Lang::get('site/user.create_an_account') }}</a>
+            </div>
+            </fieldset>
+        </form>
     </div>
-    </fieldset>
-</form>
+    <div class="col-md-6 social-auth">
+        <p>
+            You can also sign in using your Github, VK or Facebook social account.
+        </p>
+        <div>
+            <div class="social-auth-button-block"><a class="btn btn-primary" href="{{ URL::to('signin/github') }}"><i class="fa fa-github fa-header-icon"></i> Sign In with Github</a></div>
+            <div class="social-auth-button-block"><a class="btn btn-primary" href="{{ URL::to('signin/vk') }}"><i class="fa fa-vk fa-header-icon"></i> Sign In with VK</a></div>
+            <div class="social-auth-button-block"><a class="btn btn-primary" href="#"><i class="fa fa-facebook-square fa-header-icon"></i> Sign In with Facebook</a></div>
+        </div>
+    </div>
+</div>
+
+
+
 </div>
                     
 

@@ -38,6 +38,68 @@ class AuthController extends Controller
         return view('auth.signup');
     }
 
+    public function signInGithub() {
+        return \Socialite::with('github')->redirect();
+    }
+
+    public function signInVk() {
+        return \Socialite::with('vkontakte')->redirect();
+    }
+
+    public function signInGithubCallback() {
+        try {
+            $user = \Socialite::driver('github')->user();
+        } catch (Exception $e) {
+            return Redirect::to('signin/github');
+        }
+
+        $authUser = $this->findOrCreateUser($user, 'github');
+        \Auth::login($authUser, true);
+        return redirect('/');
+    }
+
+    public function signInVkCallback() {
+        try {
+            $user = \Socialite::driver('vkontakte')->user();
+        } catch (Exception $e) {
+            return Redirect::to('signin/vk');
+        }
+        $authUser = $this->findOrCreateUser($user, 'vkontakte');
+        \Auth::login($authUser, true);
+        return redirect('/');
+        
+    }
+
+    private function findOrCreateUser($user, $provider)
+    {
+        if ($authUser = User::where('provider_id', $user->id)->where('provider', $provider)->first()) {
+            return $authUser;
+        }
+
+        //check unique email
+
+        if($provider == 'github') {
+            return User::create([
+                'firstname' => $user->name,
+                'email' => $user->email,
+                'provider' => $provider,
+                'provider_id' => $user->id,
+                'avatar' => $user->avatar
+            ]);
+        }
+        if($provider == 'vkontakte') {
+            
+            return User::create([
+                'firstname' => $user->user['first_name'],
+                'lastname' => $user->user['last_name'],
+                'email' => $user->email,
+                'provider' => $provider,
+                'provider_id' => $user->id,
+                'avatar' => $user->avatar
+            ]);
+        }
+
+    }
 
     public function signUp()
     {

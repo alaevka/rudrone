@@ -14,6 +14,13 @@
 Route::get('/', 'HomeController@showIndexPage');
 
 //app routing
+
+Route::get('signin/github', 'Auth\AuthController@signInGithub');
+Route::get('signin/github/callback', 'Auth\AuthController@signInGithubCallback');
+
+Route::get('signin/vk', 'Auth\AuthController@signInVk');
+Route::get('signin/vk/callback', 'Auth\AuthController@signInVkCallback');
+
 Route::get('signin', ['as' => 'site.auth.signin.get', 'uses' => 'Auth\AuthController@showSignInForm']);
 Route::post('signin', ['as' => 'site.auth.signin.post', 'uses' => 'Auth\AuthController@signIn']);
     

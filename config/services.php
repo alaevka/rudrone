@@ -35,4 +35,16 @@ return [
         'secret' => '',
     ],
 
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => 'http://87.255.27.119:40023/signin/github/callback',
+    ],
+
+    'vkontakte' => [
+        'client_id' => env('VK_CLIENT_ID'),
+        'client_secret' => env('VK_CLIENT_SECRET'),
+        'redirect' => 'http://87.255.27.119:40023/signin/vk/callback',
+    ],
+
 ];

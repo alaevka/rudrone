@@ -59,9 +59,7 @@ body {
 .navbar-nav i.fa {
 	font-size: 18px;
 }
-.signin-form {
-	width: 50%;
-}
+
 .last-post-preview-text {
 	margin-top: 10px;
 	text-align: justify;
@@ -90,4 +88,13 @@ body {
 .community-category-subtitle {
 	font-size: 11px;
 	border-bottom: 1px solid #e2e2e8;
+}
+.social-auth-button-block {
+	margin-top: 10px;
+}
+.social-auth-button-block a.btn {
+	width: 200px;
+}
+.social-auth {
+	border-left: 2px solid #cccccc;
 }

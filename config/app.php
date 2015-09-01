@@ -146,7 +146,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         'Riari\Forum\ForumServiceProvider',
         Barryvdh\Debugbar\ServiceProvider::class,
-
+        //'Laravel\Socialite\SocialiteServiceProvider',
+        'SocialiteProviders\Manager\ServiceProvider'
     ],
 
     /*
@@ -198,6 +199,7 @@ return [
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'Form'      => 'Illuminate\Html\FormFacade',
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Socialite' => 'Laravel\Socialite\Facades\Socialite',
 
     ],
 

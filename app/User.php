@@ -20,7 +20,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $table = 'users';
     
-    protected $fillable = ['firstname', 'lastname', 'email', 'password', 'password_confirmation', 'device_id', 'device_type'];
+    protected $fillable = ['firstname', 'lastname', 'email', 'password', 'password_confirmation', 'device_id', 'device_type', 'provider', 'provider_id', 'avatar'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -32,7 +32,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     protected static $createRules = array(
         'firstname'             =>  'required',
-        'lastname'              =>  'required',
+        //'lastname'              =>  'required',
         'password'              =>  'required|min:6|confirmed',
         'password_confirmation' =>  'required|min:6',
         'email'                 =>  'required|email|unique:users,email',
