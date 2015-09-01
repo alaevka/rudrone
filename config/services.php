@@ -47,4 +47,10 @@ return [
         'redirect' => 'http://87.255.27.119:40023/signin/vk/callback',
     ],
 
+    'facebook' => [
+        'client_id' => env('FB_CLIENT_ID'),
+        'client_secret' => env('FB_CLIENT_SECRET'),
+        'redirect' => 'http://87.255.27.119:40023/signin/facebook/callback',
+    ],
+
 ];

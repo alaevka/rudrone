@@ -21,6 +21,9 @@ Route::get('signin/github/callback', 'Auth\AuthController@signInGithubCallback')
 Route::get('signin/vk', 'Auth\AuthController@signInVk');
 Route::get('signin/vk/callback', 'Auth\AuthController@signInVkCallback');
 
+Route::get('signin/facebook', 'Auth\AuthController@signInFacebook');
+Route::get('signin/facebook/callback', 'Auth\AuthController@signInFacebookCallback');
+
 Route::get('signin', ['as' => 'site.auth.signin.get', 'uses' => 'Auth\AuthController@showSignInForm']);
 Route::post('signin', ['as' => 'site.auth.signin.post', 'uses' => 'Auth\AuthController@signIn']);
     

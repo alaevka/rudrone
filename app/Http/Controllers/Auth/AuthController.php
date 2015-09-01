@@ -46,6 +46,21 @@ class AuthController extends Controller
         return \Socialite::with('vkontakte')->redirect();
     }
 
+    public function signInFacebook() {
+        return \Socialite::with('facebook')->redirect();
+    }
+
+    public function signInFacebookCallback() {
+        try {
+            $user = \Socialite::driver('facebook')->user();
+        } catch (Exception $e) {
+            return Redirect::to('signin/github');
+        }
+        $authUser = $this->findOrCreateUser($user, 'facebook');
+        \Auth::login($authUser, true);
+        return redirect('/');
+    }
+
     public function signInGithubCallback() {
         try {
             $user = \Socialite::driver('github')->user();
@@ -88,6 +103,17 @@ class AuthController extends Controller
             ]);
         }
         if($provider == 'vkontakte') {
+            
+            return User::create([
+                'firstname' => $user->user['first_name'],
+                'lastname' => $user->user['last_name'],
+                'email' => $user->email,
+                'provider' => $provider,
+                'provider_id' => $user->id,
+                'avatar' => $user->avatar
+            ]);
+        }
+        if($provider == 'facebook') {
             
             return User::create([
                 'firstname' => $user->user['first_name'],

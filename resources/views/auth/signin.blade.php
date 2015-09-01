@@ -10,6 +10,9 @@
 
 <div class="row">
     <div class="col-md-6">
+        <p style="text-align: center;">
+            Sign In with your RUDRONE account.
+        </p>
         <form class="signin-form" method="POST" action="{{URL::to('signin')}}" accept-charset="UTF-8">
             <!-- CSRF Token -->
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -30,11 +33,11 @@
 
             </div>
             
-            <div style="margin-bottom: 20px;">
-                <button tabindex="3" type="submit" class="btn btn-primary">{{Lang::get('site/user.submit') }}</button>
+            <div style="margin-bottom: 20px; text-align: center;">
+                <button tabindex="3" type="submit" style="width: 200px;" class="btn btn-primary">{{Lang::get('site/user.submit') }}</button>
             </div>
 
-            <div style="margin-bottom: 20px;">
+            <div style="margin-bottom: 20px; text-align: center;">
             <p class="text-muted">
                 <small>{{Lang::get('site/user.do_not_have_an_account') }}</small>
             </p>
@@ -50,7 +53,7 @@
         <div>
             <div class="social-auth-button-block"><a class="btn btn-primary" href="{{ URL::to('signin/github') }}"><i class="fa fa-github fa-header-icon"></i> Sign In with Github</a></div>
             <div class="social-auth-button-block"><a class="btn btn-primary" href="{{ URL::to('signin/vk') }}"><i class="fa fa-vk fa-header-icon"></i> Sign In with VK</a></div>
-            <div class="social-auth-button-block"><a class="btn btn-primary" href="#"><i class="fa fa-facebook-square fa-header-icon"></i> Sign In with Facebook</a></div>
+            <div class="social-auth-button-block"><a class="btn btn-primary" href="{{ URL::to('signin/facebook') }}"><i class="fa fa-facebook-square fa-header-icon"></i> Sign In with Facebook</a></div>
         </div>
     </div>
 </div>
