@@ -50,6 +50,9 @@
         <p>
             You can also sign in using your Github, VK or Facebook social account.
         </p>
+        @if (Session::has('provider_signin_error'))
+            <div class="has-error"><span class="help-block error-input">{{ Session::get('provider_signin_error') }}</span></div>
+        @endif
         <div>
             <div class="social-auth-button-block"><a class="btn btn-primary" href="{{ URL::to('signin/github') }}"><i class="fa fa-github fa-header-icon"></i> Sign In with Github</a></div>
             <div class="social-auth-button-block"><a class="btn btn-primary" href="{{ URL::to('signin/vk') }}"><i class="fa fa-vk fa-header-icon"></i> Sign In with VK</a></div>

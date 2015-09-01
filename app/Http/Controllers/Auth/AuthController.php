@@ -54,11 +54,15 @@ class AuthController extends Controller
         try {
             $user = \Socialite::driver('facebook')->user();
         } catch (Exception $e) {
-            return Redirect::to('signin/github');
+            return \Redirect::to('signin/github');
         }
-        $authUser = $this->findOrCreateUser($user, 'facebook');
-        \Auth::login($authUser, true);
-        return redirect('/');
+        if($authUser = $this->findOrCreateUser($user, 'facebook')) {
+            \Auth::login($authUser, true);
+            return \Redirect::to('/');
+        } else {
+            return \Redirect::to('signin')->with('provider_signin_error', 'Your email that we getting from FACEBOOK network already registered in the system. Maybe you have to authorize with the other social networks?');
+        }
+        
     }
 
     public function signInGithubCallback() {
@@ -68,9 +72,12 @@ class AuthController extends Controller
             return Redirect::to('signin/github');
         }
 
-        $authUser = $this->findOrCreateUser($user, 'github');
-        \Auth::login($authUser, true);
-        return redirect('/');
+        if($authUser = $this->findOrCreateUser($user, 'github')) {
+            \Auth::login($authUser, true);
+            return \Redirect::to('/');
+        } else {
+            return \Redirect::to('signin')->with('provider_signin_error', 'Your email that we getting from GITHUB network already registered in the system. Maybe you have to authorize with the other social networks?');
+        }
     }
 
     public function signInVkCallback() {
@@ -79,9 +86,12 @@ class AuthController extends Controller
         } catch (Exception $e) {
             return Redirect::to('signin/vk');
         }
-        $authUser = $this->findOrCreateUser($user, 'vkontakte');
-        \Auth::login($authUser, true);
-        return redirect('/');
+        if($authUser = $this->findOrCreateUser($user, 'vkontakte')) {
+            \Auth::login($authUser, true);
+            return \Redirect::to('/');
+        } else {
+            return \Redirect::to('signin')->with('provider_signin_error', 'Your email that we getting from VKONTAKTE network already registered in the system. Maybe you have to authorize with the other social networks?');
+        }
         
     }
 
@@ -92,38 +102,45 @@ class AuthController extends Controller
         }
 
         //check unique email
+        if(!$check_user_with_exist_email = User::where('email', $user->email)->first()) {
+            if($provider == 'github') {
+                return User::create([
+                    'firstname' => $user->name,
+                    'email' => $user->email,
+                    'provider' => $provider,
+                    'provider_id' => $user->id,
+                    'avatar' => $user->avatar
+                ]);
+            }
+            if($provider == 'vkontakte') {
+                
+                return User::create([
+                    'firstname' => $user->user['first_name'],
+                    'lastname' => $user->user['last_name'],
+                    'email' => $user->email,
+                    'provider' => $provider,
+                    'provider_id' => $user->id,
+                    'avatar' => $user->avatar
+                ]);
+            }
+            if($provider == 'facebook') {
+                
+                return User::create([
+                    'firstname' => $user->user['first_name'],
+                    'lastname' => $user->user['last_name'],
+                    'email' => $user->email,
+                    'provider' => $provider,
+                    'provider_id' => $user->id,
+                    'avatar' => $user->avatar
+                ]);
+            }
+        } else {
+            return false;
+        }
 
-        if($provider == 'github') {
-            return User::create([
-                'firstname' => $user->name,
-                'email' => $user->email,
-                'provider' => $provider,
-                'provider_id' => $user->id,
-                'avatar' => $user->avatar
-            ]);
-        }
-        if($provider == 'vkontakte') {
-            
-            return User::create([
-                'firstname' => $user->user['first_name'],
-                'lastname' => $user->user['last_name'],
-                'email' => $user->email,
-                'provider' => $provider,
-                'provider_id' => $user->id,
-                'avatar' => $user->avatar
-            ]);
-        }
-        if($provider == 'facebook') {
-            
-            return User::create([
-                'firstname' => $user->user['first_name'],
-                'lastname' => $user->user['last_name'],
-                'email' => $user->email,
-                'provider' => $provider,
-                'provider_id' => $user->id,
-                'avatar' => $user->avatar
-            ]);
-        }
+
+
+        
 
     }
 
