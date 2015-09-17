@@ -147,7 +147,9 @@ return [
         'Riari\Forum\ForumServiceProvider',
         Barryvdh\Debugbar\ServiceProvider::class,
         //'Laravel\Socialite\SocialiteServiceProvider',
-        'SocialiteProviders\Manager\ServiceProvider'
+        'SocialiteProviders\Manager\ServiceProvider',
+        Dingo\Api\Provider\LaravelServiceProvider::class,
+        'Tymon\JWTAuth\Providers\JWTAuthServiceProvider',
     ],
 
     /*
@@ -198,9 +200,12 @@ return [
 
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'Form'      => 'Illuminate\Html\FormFacade',
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'Socialite' => 'Laravel\Socialite\Facades\Socialite',
-
+        'API'       => 'Dingo\Api\Facade\API',
+        'JWTAuth'   => 'Tymon\JWTAuth\Facades\JWTAuth',
+        'JWTFactory'=> 'Tymon\JWTAuth\Facades\JWTFactory',
+        
     ],
 
 ];

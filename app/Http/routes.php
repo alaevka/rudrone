@@ -39,18 +39,21 @@ Route::group(array('middleware' => 'auth'), function() {
     // Route::post('profile', ['as' => 'site.profile.index.post', 'uses' => 'ProfileController@showIndex']);
 });
 
+/*
+    api routing
+*/
 
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1', function ($api) {
+    $api->resource('users', 'App\Http\Controllers\Api\V1\UserController', ['only' => ['index', 'store']]);
+    $api->post('signin', 'App\Http\Controllers\Api\V1\UserController@signin');
+});
 
-//api routing
-Route::group(array('prefix' => 'api/v1'), function(){
-
-    Route::resource('users', 'Api\UserController', array('only' => array('index', 'store')));
-    Route::post('device', function(){
-    	echo 'hello dima!';
+$api->version('v1', ['middleware' => 'api.auth'], function ($api) {
+    $api->get('user', function () {
+        $user = app('Dingo\Api\Auth\Auth')->user();
+        return $user;
     });
-
-    Route::get('test', function () {
-    	echo '1'; die();
-    });
-    
+    $api->get('vtoken', 'App\Http\Controllers\Api\V1\UserController@validateToken');
+    $api->resource('users', 'App\Http\Controllers\Api\V1\UserController', ['only' => ['destroy']]);
 });

@@ -3,8 +3,8 @@
 
 {{-- Content --}} @section('content')
 
-<div class="container container-body">
-<div class="page-header">
+<div class="container container-body middle-v">
+<div class="page-header" style="text-transform: uppercase;">
     <h3>{{{ Lang::get('site/user.signin') }}}</h3>
 </div>
 
