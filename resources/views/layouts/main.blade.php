@@ -31,8 +31,8 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="">{{Lang::get('site/user.go_button') }}</a></li>
-					<li><a href="">{{Lang::get('site/user.map_button') }}</a></li>
+					<li><a href="{{ URL::to('wizard') }}">{{Lang::get('site/user.go_button') }}</a></li>
+					<li><a href="{{ URL::to('map') }}">{{Lang::get('site/user.map_button') }}</a></li>
 					<li><a href="">{{Lang::get('site/user.blogs') }}</a></li>
 				</ul>
 

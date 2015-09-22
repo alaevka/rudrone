@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 
 class MapController extends Controller
 {	
-	public function showStaticMap() {
+	public function showMap() {
 
-		return view('map.staticmap');
+		return view('map.map');
 	}
 
 }

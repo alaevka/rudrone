@@ -6,7 +6,7 @@ return [
 	'signout' => 'Sign out',
 	'blogs' => 'Community',
 	'map_button' => 'Flight Map',
-	'go_button' => 'Construct your drone GO!',
+	'go_button' => 'Construct your UAV',
 	'read_more_button' => 'continue..',
 	'signin_header_link' => 'Sign in',
 	'signin' => 'Sign in to continue',

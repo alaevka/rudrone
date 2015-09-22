@@ -30,10 +30,15 @@ Route::post('signin', ['as' => 'site.auth.signin.post', 'uses' => 'Auth\AuthCont
 Route::get('signup', ['as' => 'site.auth.signup.get', 'uses' => 'Auth\AuthController@showSignUpForm']);
 Route::post('signup', ['as' => 'site.auth.signup.post', 'uses' => 'Auth\AuthController@signUp']);
 
+
+Route::get('wizard', ['as' => 'site.wizard.get', 'uses' => 'Wizard\WizardController@showWizard']);
+
 Route::group(array('middleware' => 'auth'), function() {
     Route::get('signout', 'Auth\AuthController@signOut');
 
-    Route::get('staticmap', ['as' => 'site.map.staticmap.get', 'uses' => 'Map\MapController@showStaticMap']);
+    Route::get('map', ['as' => 'site.map.get', 'uses' => 'Map\MapController@showMap']);
+
+    
     
     // Route::get('profile', ['as' => 'site.profile.index.get', 'uses' => 'ProfileController@showIndex']);
     // Route::post('profile', ['as' => 'site.profile.index.post', 'uses' => 'ProfileController@showIndex']);
@@ -48,6 +53,7 @@ $api->version('v1', function ($api) {
     $api->resource('users', 'App\Http\Controllers\Api\V1\UserController', ['only' => ['index', 'store']]);
     $api->post('signin', 'App\Http\Controllers\Api\V1\UserController@signin');
 });
+
 
 $api->version('v1', ['middleware' => 'api.auth'], function ($api) {
     $api->get('user', function () {

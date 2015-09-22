@@ -144,7 +144,6 @@ return [
         App\Providers\AppServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        'Riari\Forum\ForumServiceProvider',
         Barryvdh\Debugbar\ServiceProvider::class,
         //'Laravel\Socialite\SocialiteServiceProvider',
         'SocialiteProviders\Manager\ServiceProvider',

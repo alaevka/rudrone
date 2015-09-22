@@ -106,3 +106,37 @@ body {
 .middle-v {
 	
 }
+.wizard-form {
+	font-size: 12px;
+}
+.wizard-form .radio-inline label {
+	font-weight: normal;
+
+}
+.wizard-form .label-type {
+	margin-bottom: 20px;
+	font-weight: bold;
+}
+.tab-content .tab-pane {
+	padding: 20px 0;
+}
+.detail-desc {
+	font-size: 11px;
+}
+.site-link-underline {
+	border-bottom: 1px dashed;
+}
+.wizard-results-table {
+	height: 305px;
+	overflow: auto;
+}
+.config-result-row {
+	font-size: 12px;
+	padding: 10px 5px;
+}
+.config-result-row span {
+	font-weight: bold;
+}
+.recomendations-block {
+	margin: 10px 0;
+}

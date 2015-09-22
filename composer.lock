@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "34addacdb6a68ff1d8c360862a09bb92",
-    "content-hash": "e171462fefefa91fd13cedde66ecfeef",
+    "hash": "ea799c52c22608f1839b051fe8669a97",
+    "content-hash": "60868feb49aabc7daccdb2e7cc00fe0a",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -177,12 +177,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dingo/api.git",
-                "reference": "eb22dd101349b51e447e3baa865067ef3944991a"
+                "reference": "4468b88b5f43a4e9c3f64d3a1e8803309e2b9625"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dingo/api/zipball/eb22dd101349b51e447e3baa865067ef3944991a",
-                "reference": "eb22dd101349b51e447e3baa865067ef3944991a",
+                "url": "https://api.github.com/repos/dingo/api/zipball/4468b88b5f43a4e9c3f64d3a1e8803309e2b9625",
+                "reference": "4468b88b5f43a4e9c3f64d3a1e8803309e2b9625",
                 "shasum": ""
             },
             "require": {
@@ -245,7 +245,7 @@
                 "laravel",
                 "restful"
             ],
-            "time": "2015-09-04 01:35:06"
+            "time": "2015-09-22 00:46:33"
         },
         {
             "name": "dingo/blueprint",
@@ -1119,20 +1119,23 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "7323424a9d39c24e597ed3f2144419dfbb52e086"
+                "reference": "76caed01a57527599b55919f0746104f288b3d56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/7323424a9d39c24e597ed3f2144419dfbb52e086",
-                "reference": "7323424a9d39c24e597ed3f2144419dfbb52e086",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/76caed01a57527599b55919f0746104f288b3d56",
+                "reference": "76caed01a57527599b55919f0746104f288b3d56",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
+            },
+            "conflict": {
+                "league/flysystem-sftp": "<1.0.6"
             },
             "require-dev": {
                 "ext-fileinfo": "*",
@@ -1196,7 +1199,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2015-09-05 12:06:41"
+            "time": "2015-09-20 13:05:34"
         },
         {
             "name": "league/fractal",
@@ -1599,16 +1602,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "196f177cfefa0f1f7166c0a05d8255889be12418"
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/196f177cfefa0f1f7166c0a05d8255889be12418",
-                "reference": "196f177cfefa0f1f7166c0a05d8255889be12418",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
+                "reference": "f78af2c9c86107aa1a34cd1dbb5bbe9eeb0d9f51",
                 "shasum": ""
             },
             "require": {
@@ -1640,7 +1643,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2015-07-14 17:31:05"
+            "time": "2015-09-19 14:15:08"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1949,53 +1952,6 @@
             "time": "2015-07-16 15:26:57"
         },
         {
-            "name": "riari/laravel-forum",
-            "version": "2.4.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Riari/laravel-forum.git",
-                "reference": "adf65f9d28a01a6ef69048ac23f5976c71761971"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Riari/laravel-forum/zipball/adf65f9d28a01a6ef69048ac23f5976c71761971",
-                "reference": "adf65f9d28a01a6ef69048ac23f5976c71761971",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "classmap": [
-                    "src/migrations"
-                ],
-                "psr-0": {
-                    "Riari\\Forum\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Riari",
-                    "email": "hello@ricko.me"
-                }
-            ],
-            "description": "A complete forum package designed for easy integration into any Laravel 4/5 application",
-            "keywords": [
-                "discuss",
-                "forum",
-                "laravel",
-                "laravel-4",
-                "laravel-5"
-            ],
-            "time": "2015-09-15 20:15:32"
-        },
-        {
             "name": "socialiteproviders/manager",
             "version": "1.0.1",
             "source": {
@@ -2040,16 +1996,16 @@
         },
         {
             "name": "socialiteproviders/vkontakte",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SocialiteProviders/VKontakte.git",
-                "reference": "45a92e07871a56640ff296179466f8d0e781e4d3"
+                "reference": "0664e6937d2feb938b0358810250157b4f691b9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SocialiteProviders/VKontakte/zipball/45a92e07871a56640ff296179466f8d0e781e4d3",
-                "reference": "45a92e07871a56640ff296179466f8d0e781e4d3",
+                "url": "https://api.github.com/repos/SocialiteProviders/VKontakte/zipball/0664e6937d2feb938b0358810250157b4f691b9b",
+                "reference": "0664e6937d2feb938b0358810250157b4f691b9b",
                 "shasum": ""
             },
             "require": {
@@ -2073,7 +2029,7 @@
                 }
             ],
             "description": "VKontakte OAuth2 Provider for Laravel Socialite",
-            "time": "2015-06-18 14:24:23"
+            "time": "2015-09-19 13:21:13"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3612,16 +3568,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.7",
+            "version": "4.8.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "dab2ada9e9a503d2ec3c32fe0fb59dea9bdd9dfa"
+                "reference": "73fad41adb5b7bc3a494bb930d90648df1d5e74b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dab2ada9e9a503d2ec3c32fe0fb59dea9bdd9dfa",
-                "reference": "dab2ada9e9a503d2ec3c32fe0fb59dea9bdd9dfa",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/73fad41adb5b7bc3a494bb930d90648df1d5e74b",
+                "reference": "73fad41adb5b7bc3a494bb930d90648df1d5e74b",
                 "shasum": ""
             },
             "require": {
@@ -3680,7 +3636,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-09-14 06:57:22"
+            "time": "2015-09-20 12:56:44"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
