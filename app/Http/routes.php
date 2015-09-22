@@ -32,6 +32,7 @@ Route::post('signup', ['as' => 'site.auth.signup.post', 'uses' => 'Auth\AuthCont
 
 
 Route::get('wizard', ['as' => 'site.wizard.get', 'uses' => 'Wizard\WizardController@showWizard']);
+Route::get('community', ['as' => 'site.community.get', 'uses' => 'Community\CommunityController@showIndexPage']);
 
 Route::group(array('middleware' => 'auth'), function() {
     Route::get('signout', 'Auth\AuthController@signOut');

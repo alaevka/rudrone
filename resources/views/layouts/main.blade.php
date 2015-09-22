@@ -33,7 +33,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{{ URL::to('wizard') }}">{{Lang::get('site/user.go_button') }}</a></li>
 					<li><a href="{{ URL::to('map') }}">{{Lang::get('site/user.map_button') }}</a></li>
-					<li><a href="">{{Lang::get('site/user.blogs') }}</a></li>
+					<li><a href="{{ URL::to('community') }}">{{Lang::get('site/user.blogs') }}</a></li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">
